@@ -13,3 +13,4 @@
 | 100DaysOfCode | [Info](https://www.100daysofcode.com/) | GitHub like progress for tracking daily progress |
 | NoFap | [Info](https://www.reddit.com/r/NoFap/) |- Simple number day counter |
 | Sleep early | **Example:** I challenge myselves to seleep before 10 pm every day. I need a tracker for that. | |
+| Rejection Therapy | Watch this [TED Talk](https://www.youtube.com/watch?v=-vZXgApsPCQ). Website link [here](https://www.rejectiontherapy.com) | |
