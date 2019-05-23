@@ -1,8 +1,12 @@
 ## Add your card ideas here
 
-Add your ideas below using the markdown table syntax
+- Add your ideas below using the markdown table syntax
 
-If you are new to markdown watch this 12 minute [video](https://www.youtube.com/watch?v=eJojC3lSkwg)
+- If you are new to markdown watch this 12 minute [video](https://www.youtube.com/watch?v=eJojC3lSkwg)
+
+- If there are two card type, add a new row below the curresponding task. Example, if you want to add want diffrent card type for already existing `100DaysOfCode` then duplicate that line and edit `Card type` field
+
+
 
 | Task | Description | Card type |
 | --- | --- | --- |
