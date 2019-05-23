@@ -8,67 +8,74 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-public class ProgressView extends View {
+public class GitHubLikeProgressView extends View {
 
+    //Rect values
     private int left;
     private int top;
     private int right;
     private int bottom;
 
-    private int SHIFT = 100;
+    //Rect constants
+    private int SIZE = 100;
     private int GAP = 10;
-    private int RAW = 3;
+    private int ROW = 3;
     private int COLUMN = 3;
 
-    private int[] a = {0, 1, 0};
-    private int[] b = {1, 0, 0};
+    private int x = 0; //this variable is for tracking array index
 
-    private int x = 0;
+    /**
+     * @box_pos an array representing each boxes
+     * boxes are counted downwards
+     *
+     * Diffrent array values can be used to draw different colors
+     */
+    private int[] box_pos = {1, 1, 1, 0, 1, 2, 0, 0, 1};
 
-    private int[] mark_pos = {1, 1, 1, 0, 1, 2, 0, 0, 1};
-
+    //Objects
     private Paint paint;
 
-    public ProgressView(Context context) {
+
+    //Constructors
+    public GitHubLikeProgressView(Context context) {
         super(context);
         init();
     }
 
-    public ProgressView(Context context, AttributeSet attrs) {
+    public GitHubLikeProgressView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public ProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public GitHubLikeProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-    public ProgressView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public GitHubLikeProgressView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        //For loop used to draw boxes
         for (int i = 0; i < COLUMN; i++) {
 
-            left = i * SHIFT + GAP;
-            right = left + SHIFT - GAP;
+            left = i * SIZE + GAP;
+            right = left + SIZE - GAP;
 
             top = 0;
             bottom = 0;
 
-//            Log.d("progress_view", "Index of i: " + i);
+            for (int j = 0; j < ROW; j++) {
 
-
-            for (int j = 0; j < RAW; j++) {
-
-                if (mark_pos[x] == 1) {
+                if (box_pos[x] == 1) {
                     paint.setColor(Color.GREEN);
-                } else if (mark_pos[x] == 2) {
+                } else if (box_pos[x] == 2) {
                     paint.setColor(Color.BLUE);
                 } else {
                     paint.setColor(Color.GRAY);
@@ -76,12 +83,10 @@ public class ProgressView extends View {
 
                 x++;
 
-                top = j * SHIFT + GAP;
-                bottom = top + SHIFT - GAP;
+                top = j * SIZE + GAP;
+                bottom = top + SIZE - GAP;
 
                 canvas.drawRect(left, top, right, bottom, paint);
-
-//                Log.d("progress_view", "j: " + j);
             }
 
 
@@ -92,8 +97,8 @@ public class ProgressView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-        int desiredWidth = (COLUMN * SHIFT) + GAP;
-        int desiredHeight = (RAW * SHIFT) + GAP;
+        int desiredWidth = (COLUMN * SIZE) + GAP;
+        int desiredHeight = (ROW * SIZE) + GAP;
 
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
