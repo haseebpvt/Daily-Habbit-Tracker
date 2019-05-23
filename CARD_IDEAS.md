@@ -1,10 +1,15 @@
 ## Add your card ideas here
-Add your ideas on new line with prefixing [markdown task list](https://help.github.com/en/articles/about-task-lists) syntax `- [ ]` like below. 
 
-- [ ] [100 days of code challenge]()
+Add your ideas below using the markdown list syntax
 
-GitHub like progress for tracking daily progress
+If you are new to markdown watch this 12 minute [video](https://www.youtube.com/watch?v=eJojC3lSkwg)
 
-- [ ] [NoFap](https://www.reddit.com/r/NoFap/) challenge
-- [ ] Daily prayers
-- [ ] Sleep early log
+- [100DaysOfCode](https://www.100daysofcode.com/)
+  - GitHub like progress for tracking daily progress
+  
+- [NoFap](https://www.reddit.com/r/NoFap/)
+  - Simple number day counter
+  
+- Sleep early
+  - GitHub like progress for tracking daily progress
+
