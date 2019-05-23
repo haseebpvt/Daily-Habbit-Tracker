@@ -1,7 +1,6 @@
-# Daily-Habit-Tracker
 Daily is a habbit tracker with custom add-ons
 
-##The Idea
+## The Idea
 
 ![Demo image](https://github.com/haseebpvt/Daily-Habit-Tracker/blob/master/image/demo.png)
 
