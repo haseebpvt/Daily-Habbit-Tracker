@@ -20,6 +20,13 @@ public class ProgressView extends View {
     private int RAW = 3;
     private int COLUMN = 3;
 
+    private int[] a = {0, 1, 0};
+    private int[] b = {1, 0, 0};
+
+    private int x = 0;
+
+    private int[] mark_pos = {1, 1, 1, 0, 1, 2, 0, 0, 1};
+
     private Paint paint;
 
     public ProgressView(Context context) {
@@ -54,16 +61,27 @@ public class ProgressView extends View {
             top = 0;
             bottom = 0;
 
-            Log.d("progress_view", "Index of i: " + i);
+//            Log.d("progress_view", "Index of i: " + i);
 
 
             for (int j = 0; j < RAW; j++) {
+
+                if (mark_pos[x] == 1) {
+                    paint.setColor(Color.GREEN);
+                } else if (mark_pos[x] == 2) {
+                    paint.setColor(Color.BLUE);
+                } else {
+                    paint.setColor(Color.GRAY);
+                }
+
+                x++;
+
                 top = j * SHIFT + GAP;
                 bottom = top + SHIFT - GAP;
 
                 canvas.drawRect(left, top, right, bottom, paint);
 
-                Log.d("progress_view", "j: " + j);
+//                Log.d("progress_view", "j: " + j);
             }
 
 
@@ -89,24 +107,30 @@ public class ProgressView extends View {
         if (widthMode == MeasureSpec.EXACTLY) {
             //Must be this size
             width = widthSize;
+            Log.d("progress_view", "MS width EXACTLY: " + width);
         } else if (widthMode == MeasureSpec.AT_MOST) {
             //Can't be bigger than...
             width = Math.min(desiredWidth, widthSize);
+            Log.d("progress_view", "MS width AT_MOST: " + width);
         } else {
             //Be whatever you want
             width = desiredWidth;
+            Log.d("progress_view", "DEFAULT WIDTH: " + width);
         }
 
         //Measure Height
         if (heightMode == MeasureSpec.EXACTLY) {
             //Must be this size
             height = heightSize;
+            Log.d("progress_view", "MS height EXACTLY: " + height);
         } else if (heightMode == MeasureSpec.AT_MOST) {
             //Can't be bigger than...
             height = Math.min(desiredHeight, heightSize);
+            Log.d("progress_view", "MS height AT_MOST: " + height);
         } else {
             //Be whatever you want
             height = desiredHeight;
+            Log.d("progress_view", "DEFAULT HEIGHT: " + height);
         }
 
         //MUST CALL THIS
@@ -116,7 +140,7 @@ public class ProgressView extends View {
 
     private void init() {
         paint = new Paint();
-        paint.setColor(Color.GREEN);
+        paint.setColor(Color.GRAY);
 
         left = 0;
         top = 0;
