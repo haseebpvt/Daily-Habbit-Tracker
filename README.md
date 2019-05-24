@@ -1,3 +1,5 @@
+The project is on a very early stage.
+
 Daily is a habit tracker with custom add-ons
 
 ## The Idea
