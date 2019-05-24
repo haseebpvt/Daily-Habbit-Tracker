@@ -1,6 +1,6 @@
 Daily is a habit tracker with custom add-ons
 
-:hatching_chick: This project is currently on an early stage
+:hatching_chick: *This project is currently on an early stage*
 
 ## The Idea
 
