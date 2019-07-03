@@ -26,6 +26,7 @@ public class CounterRepository {
         counterDao = appDatabase.counterDao();
         counterHistoryDao = appDatabase.counterHistoryDao();
 
+        allCountersHistory = counterHistoryDao.getAllCounters();
     }
 
     public void setCounterDao(CounterDao counterDao) {
@@ -41,7 +42,7 @@ public class CounterRepository {
     }
 
     public LiveData<List<Counter>> getAllCountersHistory() {
-        return counterHistoryDao.getAllCounters();
+        return allCountersHistory;
     }
 
     public void insertCounter(Counter counter) {
